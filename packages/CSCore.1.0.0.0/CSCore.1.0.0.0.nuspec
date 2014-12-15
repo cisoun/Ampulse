@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CSCore</id>
+    <version>1.0.0.0</version>
+    <title>CSCore</title>
+    <authors>Florian R.</authors>
+    <owners>Florian R.</owners>
+    <licenseUrl>https://cscore.codeplex.com/license</licenseUrl>
+    <projectUrl>https://cscore.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>CSCore is a opensource .NET audio library. It includes various features for working with audio (like playing and recording sounds, applying effects, encoding and decoding audio files, ...).</description>
+    <releaseNotes>-Added full XAudio2 support
+-Added a few fluent api extensions
+-Added more than 1000 xml comments
+-Removed the FFTAggregator class.
+-Fixed several bugs
+-Marked some classes as obsolete
+-Removed the obsolete CSCore.Visualization project
+-Fixed a few mistakes like incorrect names, ...</releaseNotes>
+    <tags>cscore audio sound library .net visualization c# visual basic vb</tags>
+  </metadata>
+</package>

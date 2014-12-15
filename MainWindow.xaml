@@ -1,0 +1,15 @@
+﻿<Window x:Class="Ampulse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ampulse" Height="357" Width="877">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="assets/amp.png"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="431*"/>
+            <ColumnDefinition Width="438*"/>
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+</Window>
