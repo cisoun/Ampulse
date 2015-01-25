@@ -20,6 +20,7 @@ Guitare amplifier and cabinet simulator.
 ## Installation
 
 1) Compile the project with Visual Studio.
+
 2) Move the doc/IR folder in the folder where the new executable is (bin).
 
 ## Screenshot
