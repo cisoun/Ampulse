@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="Ampulse.UI.Components.Slider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="17" Initialized="OnInitialized" Loaded="OnLoaded">
+    <Canvas x:Name="canvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Image x:Name="slider" Source="/Ampulse;component/Assets/slider.png"  MouseMove="OnMouseMove" MouseUp="OnMouseUp" MouseDown="OnMouseDown" Canvas.Top="0" Stretch="Fill" Cursor="Hand" Canvas.Left="0" Width="17"/>
+    </Canvas>
+</UserControl>
