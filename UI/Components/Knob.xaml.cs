@@ -17,12 +17,18 @@ namespace Ampulse.UI.Components
 {
 	/// <summary>
 	/// Knob interaction logic.
+	/// 
+	/// Value goes from 0.0 (left) to 1.0 (right).
+	/// 
+	/// TODO : Improve the drag system (only works with vertical mouse position).
 	/// </summary>
 	public partial class Knob : UserControl
 	{
-		private readonly double MAX = 135.0; // Maximum angle
+		private readonly float MAX = 135.0f; // Maximum angle
 
-		private bool rotating;
+		public event EventHandler ValueChanged;
+
+		private bool turned;
 		private float sensivity;
 		private float value;
 		private RotateTransform transform;
@@ -35,14 +41,14 @@ namespace Ampulse.UI.Components
 		public float Value
 		{
 			get	{ return value;	}
-			set	{ this.value = value; }
+			set	{ SetValue(value); }
 		}
 
 		public Knob()
 		{
 			InitializeComponent();
 
-			rotating = false;
+			turned = false;
 			sensivity = 0.2f;
 			value = 0.5f;
 
@@ -54,27 +60,43 @@ namespace Ampulse.UI.Components
 			knob.RelativeTransform = transform;
 		}
 
-		private void DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+		private void OnDragStart(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
 		{
-			rotating = true;
+			turned = true;
 		}
 
-		private void DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+		private void OnDragComplete(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
 		{
-			rotating = false;
+			turned = false;
 		}
 
-		private void DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+		private void OnDragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
 		{
-			double newAngle = transform.Angle + (e.VerticalChange * sensivity);
+			float newAngle = (float)(transform.Angle + (e.VerticalChange * sensivity));
 			bool atBounds = Math.Abs(newAngle) > MAX;
 
-			// Rotate unless while we're in the bounds.
-			if (rotating && !atBounds)
-				transform.Angle = newAngle;
+			// Rotate and change the value unless while we're in the bounds.
+			if (turned && !atBounds)
+				SetValue((newAngle + MAX) / (2.0f * MAX));
 
-			// Set the value.
-			value = (float)((transform.Angle + MAX) / (MAX * 2));
+			// Event
+			if (ValueChanged != null)
+			{
+				ValueChanged(this, new EventArgs());
+			}
+		}
+
+		public void SetValue(float value)
+		{
+			if (value < 0.0f)
+				value = 0.0f;
+			if (value > 1.0f)
+				value = 1.0f;
+
+			this.value = value;
+
+			// Rotate knob
+			transform.Angle = (value * MAX * 2) - MAX;
 		}
 	}
 }

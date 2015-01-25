@@ -33,6 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Ampulse.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>ampulse.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSCore">
       <HintPath>packages\CSCore.1.0.0.0\lib\net35-client\CSCore.dll</HintPath>
@@ -60,7 +67,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Components\Cabinet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Components\Knob.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Components\Slider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -72,11 +87,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Audio.cs" />
     <Compile Include="UI\Components\Amplifier.xaml.cs">
       <DependentUpon>Amplifier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Components\Cabinet.xaml.cs">
+      <DependentUpon>Cabinet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Components\Knob.xaml.cs">
       <DependentUpon>Knob.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\Slider.xaml.cs">
+      <DependentUpon>Slider.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,7 +123,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,15 +133,27 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\amp.png" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\cab.png" />
     <Resource Include="Assets\cabview.png" />
     <Resource Include="Assets\knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\slider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\amp_off.png" />
+    <Resource Include="Assets\amp_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ampulse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ampulse.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

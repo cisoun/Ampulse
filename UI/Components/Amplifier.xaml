@@ -7,11 +7,22 @@
              mc:Ignorable="d" Width="876" MaxWidth="876" MaxHeight="351" MinWidth="876" MinHeight="351">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Ampulse;component/Assets/amp.png"/>
+            <ImageBrush x:Name="background" ImageSource="/Ampulse;component/Assets/amp_on.png"/>
         </Grid.Background>
-        <local:Knob x:Name="pregain" HorizontalAlignment="Left" Margin="247,220,0,0" VerticalAlignment="Top"/>
-        <local:Knob x:Name="distortion" HorizontalAlignment="Left" Margin="576,220,0,0" VerticalAlignment="Top"/>
-        <local:Knob x:Name="reverb" HorizontalAlignment="Left" Margin="628,220,0,0" VerticalAlignment="Top"/>
-        <local:Knob x:Name="master" HorizontalAlignment="Left" Margin="681,220,0,0" VerticalAlignment="Top"/>
+        <local:Knob x:Name="pregain" HorizontalAlignment="Left" Margin="247,220,0,0" VerticalAlignment="Top" ValueChanged="PregainChangedEvent"/>
+        <local:Knob x:Name="distortion" HorizontalAlignment="Left" Margin="576,220,0,0" VerticalAlignment="Top" ValueChanged="DistortionChangedEvent" Value="0.0"/>
+        <local:Knob x:Name="reverb" HorizontalAlignment="Left" Margin="628,220,0,0" VerticalAlignment="Top" ValueChanged="ReverbChangedEvent" Value="0.0"/>
+        <local:Knob x:Name="master" HorizontalAlignment="Left" Margin="681,220,0,0" VerticalAlignment="Top" ValueChanged="MasterChangedEvent"/>
+        <local:Slider x:Name="eq0" HorizontalAlignment="Left" Margin="328,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq1" HorizontalAlignment="Left" Margin="348,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq2" HorizontalAlignment="Left" Margin="368,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq3" HorizontalAlignment="Left" Margin="387,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq4" HorizontalAlignment="Left" Margin="407,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq5" HorizontalAlignment="Left" Margin="427,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq6" HorizontalAlignment="Left" Margin="446,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq7" HorizontalAlignment="Left" Margin="466,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq8" HorizontalAlignment="Left" Margin="486,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <local:Slider x:Name="eq9" HorizontalAlignment="Left" Margin="505,201,0,0" VerticalAlignment="Top" Height="90" Width="16" Value="0.5" ValueChanged="EqualizerChangedEvent"/>
+        <Button x:Name="powerButton" HorizontalAlignment="Left" Margin="166,217,0,0" VerticalAlignment="Top" Width="20" Height="47" Background="Black" Opacity="0" Click="SwitchPower"/>
     </Grid>
 </UserControl>

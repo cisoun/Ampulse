@@ -16,7 +16,9 @@ using System.Windows.Shapes;
 namespace Ampulse.UI.Components
 {
 	/// <summary>
-	/// Logique d'interaction pour Slider.xaml
+	/// Slider user control.
+	/// 
+	/// Value goes from 0.0 (bottom) to 1.0 (top).
 	/// </summary>
 	public partial class Slider : UserControl
 	{
@@ -52,9 +54,8 @@ namespace Ampulse.UI.Components
 				double position = e.GetPosition(this).Y;
 				if (position < 0) position = 0.0;
 				if (position + slider.ActualHeight >= this.ActualHeight) position = max;
-				Canvas.SetTop(slider, position);
 
-				value = (float)(position / max);
+				SetValue(1.0f - (float)(position / max));
 			}
 		}
 
@@ -70,11 +71,11 @@ namespace Ampulse.UI.Components
 			if (value > 1.0f) value = 1.0f;
 			this.value = value;
 
-			Canvas.SetTop(slider, this.value * (this.ActualHeight - slider.ActualHeight));
+			Canvas.SetTop(slider, (1.0f - this.value) * (this.ActualHeight - slider.ActualHeight));
 
 			if (ValueChanged != null)
 			{
-				ValueChanged(this, EventArgs.Empty);
+				ValueChanged(this, new EventArgs());
 			}
 		}
 

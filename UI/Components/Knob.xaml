@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="40" d:DesignWidth="40" MaxWidth="40" MaxHeight="40" Width="40" Height="40">
     <Grid RenderTransformOrigin="0.5,0.5">
-        <Thumb x:Name="thumb" DragStarted="DragStarted" DragCompleted="DragCompleted" DragDelta="DragDelta" Opacity="0"/>
+        <Thumb x:Name="thumb" DragStarted="OnDragStart" DragCompleted="OnDragComplete" DragDelta="OnDragDelta" Opacity="0"/>
         <Grid.Background>
             <ImageBrush x:Name="knob" ImageSource="/Ampulse;component/Assets/knob.png">
                 <ImageBrush.RelativeTransform>
